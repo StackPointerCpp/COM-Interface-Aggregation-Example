@@ -1,1 +1,1 @@
-# COM-Interface-Aggregation-Example
+# COM Interface Aggregation Example
