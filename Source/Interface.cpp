@@ -107,15 +107,25 @@ STDMETHODIMP FaceOuter::QueryInterface(const IID& iid, void** ppv)
     // IUnknown case: IUnknown interface need the outer object
     if (iid == IID_IUnknown) *ppv = this;
 
-    // Create a table conteining all queryable interfaces
-    QITAB qiTab[] = {
-        QITABENT(FaceOuter, IUnknown),
-        QITABENT(FaceOuter, IFace),
-        QUERYINTERFACETABLE_TERMINATOR_VALUE,
-    };
+    // Other interfaces case
+    else
+    {
+        // Create a table conteining all queryable interfaces
+        QITAB qiTab[] = {
+            QITABENT(FaceOuter, IUnknown),
+            QITABENT(FaceOuter, IFace),
+            QUERYINTERFACETABLE_TERMINATOR_VALUE,
+        };
 
-    // Return interface search result
-    return QISearch(&m_inner, qiTab, iid, ppv);
+        // Return interface search result
+        return QISearch(&m_inner, qiTab, iid, ppv);
+    }
+
+    // Interface isn't correct, then isn't validated the pointer
+    if(ppv == NULL) return E_NOINTERFACE;
+
+    // Return success
+    return S_OK;
 }
 
 STDMETHODIMP_(ULONG) FaceOuter::AddRef()
