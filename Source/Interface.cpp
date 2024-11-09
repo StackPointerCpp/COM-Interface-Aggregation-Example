@@ -121,9 +121,6 @@ STDMETHODIMP FaceOuter::QueryInterface(const IID& iid, void** ppv)
         return QISearch(&m_inner, qiTab, iid, ppv);
     }
 
-    // Interface isn't correct, then isn't validated the pointer
-    if(ppv == NULL) return E_NOINTERFACE;
-
     // Return success
     return S_OK;
 }
