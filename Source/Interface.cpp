@@ -94,7 +94,7 @@ HRESULT FaceOuter::Create(IUnknown* pUnknown, const IID& iid, void** ppv)
     hr = pOuter->QueryInterface(iid, ppv);
     if (FAILED(hr))
     {
-        // deallocate outer object's pointer
+        // Deallocate outer object's pointer
         delete pOuter;
     }
 
