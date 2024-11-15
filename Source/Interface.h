@@ -93,7 +93,7 @@ extern "C++"
 		// Release method's full implementation
 		STDMETHODIMP_(ULONG) Release();
 
-		// Outer class constructor is default
+		// Outer class destructor is default
 		~FaceOuter() = default;
 	};
 
