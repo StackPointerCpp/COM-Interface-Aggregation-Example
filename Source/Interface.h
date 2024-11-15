@@ -67,7 +67,7 @@ extern "C++"
 			// Override and implement IFace's ThirdSampleMethod
 			HRESULT ThirdSampleMethod(UINT something) override;
 
-			// Inner class constructor is default
+			// Inner class destructor is default
 			~FaceInner() = default;
 		};
 		
