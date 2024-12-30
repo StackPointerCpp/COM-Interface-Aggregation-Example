@@ -90,7 +90,7 @@ HRESULT FaceOuter::Create(IUnknown* pUnknown, const IID& iid, void** ppv)
     pOuter->m_pUnknownController = reinterpret_cast<IUnknown*>(pOuter);
     pOuter->m_inner.m_pUnknownController = reinterpret_cast<IUnknown*>(pOuter);
 
-    // Call outer object's QuieryInterface method to initialize void** parameter, that is the interface reference
+    // Call outer object's QueryInterface method to initialize void** parameter, that is the interface reference
     hr = pOuter->QueryInterface(iid, ppv);
     if (FAILED(hr))
     {
@@ -98,7 +98,7 @@ HRESULT FaceOuter::Create(IUnknown* pUnknown, const IID& iid, void** ppv)
         delete pOuter;
     }
 
-    // Return QuieryInterface call result
+    // Return QueryInterface call result
     return hr;
 }
 
